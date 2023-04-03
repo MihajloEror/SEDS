@@ -1,0 +1,341 @@
+-------------------------------------------------------------------------------------------------------------------------------------------
+1) 
+Motivacija je podrska poslovanju info sistema. 
+Pruza se uz MIS(Management Information Systems) I DSS(Decision Support Systems) 
+MIS obezbedjuju operativne podatke o poslovanju I pruzaju mogucnost kreiranja izvestaja ali je podrska analize losija. 
+OLTP(Online Transactional Processing) je podsistem MIS i on obezbedjuje performanse pri transakcijama, rukuje komplesnim podacima and nisu nisu dobri kod zahtevnih upita. 
+Karakteristike: 
+1) slog je osnovna jedinica
+2) operacije azuriranja 
+3) rukovanje sa malo podataka 
+4) strukture su staticke. 
+Analiza MIS sys radi se analizom operativnih podataka ili generisanjem izvestaja nad njima 
+
+DSS savremenije I bolje resenje jer obezbedjuje softversku podrsku analizi podataka. 
+Kao input prima istorijske operativne podatke, matematicke modele analize poslovanja a vraca info bitan za proces odlucivanja. 
+Karakteristike DSS 
+1)upravljanje modela 
+2) komponenete za upravljanje podacima
+3) prezentaciju podataka Koncepcija – 
+
+DW je nastao kao posledica potrebe za skaldistenjem i obradom velike kolicine podataka 
+DW sistemi su orjentisani na teme
+Karakteristike DW podataka: 
+1)integirasni(standradizovani)
+2)vremenski zavisni 
+3)nepromeljivi
+ 
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+2)Tematske karakteristike DW sistema obuhvataju dimenzionost, granularnost I diskretizaciju vremena. 
+Dimenzionost je iskazivanje podataka u DW spram razlicitih dimenzija koje ih opisuju (podela podataka na cinjenicne i dimenzione) 
+Granularnost su razliciti nivoi na kojima se vrsi prikupljanje podataka pri update DW-a(npr dal se porudzbine racunaju na nivou dana ili nedelje) 
+Diskretizacija je podela vremenske komponenete poslovanja na jedinice sa kojima se povezuju bitni unosi DW baze podataka.
+Za razliku od OLTP podaci u DW bazama imaju duži zivotni vek tj. nikad se ne brišu.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+3) Arhitektura – viseslojna I pokriva:
+1) servere 
+2) app servere 
+3) medjupodrucja DW sistema
+4) klijente 
+5) metadata repository 
+Podela prema opsegu pokrivenosti tema: EDW I DM. 
+EDW(Enterprise Data Warehouse) je korporativni DW I pokriva celo poslovanje. 
+Razvija se inkementalno, izvor podataka za celokupni menadzment, sinhronizovan sa svih izvorima I cesto je osnova za DM sisteme. 
+
+DM(Data Mart) je tematski DW I pokriva jednu temu poslovanja, on je pilot ozbiljnog DW sys I moze biti zavisan I nezavisan od drugih. 
+
+Virtual DW arhitektura ovde ne postoji posebna DW baza, ima direktan pristup OLTP sys uz pomoc klijentskih alata za upite I analizu podataka. 
+Prednosti: malo ulaganja I relativno jednostavno 
+Mane: ne postoje istorijski, agregirani ni meta podaci 
+
+Packaged DW upakovani proizvod obezbedjuje 
+1) izgradju DW iz vise izvora 
+2) pristup DW alataima za upite I analizu 
+3) izgradju local MDR. 
+Prednost: eleminiacija komunikacije sa OLTP bazom 
+Mane: eksplozija nezavisnih I neintegrisanih DM-ova, nema zajednicke osnove meta podataka na nivou organizacija, “dirty” data... 
+
+Arhitektura izvedenog DW packaged DW sa jednim ECTL paketom I DSA medjupodrucjem sto omogucava 
+1)ekstrakciju, prociscavanje, transformaciju I punjenje 
+2) agregiranje I sumiranje 
+3) kreiranje I odrzavanje centralnog MDR 
+4) administratorske fje DW sys 
+5) interfejs prema alatu za modelovanje DW baze 
+prednosti: jednistven ECTL, centralyzen MDR 
+mane: slaba integrisanost CMDR I MDR, nezavisni I neintegrisani DM , podrska org potreba samo na nivou jedne teme 
+
+Povezani DW izvedeni DM sa softverom za azmenu meta modataka 
+
+Centralni DW jedinstven I integrisan DW sys. 
+Cuva analiticke podatke I izvor je usaglasenih podataka cele organizacije. 
+Dobar za upite I izvestaje nad analiticikih podacima, odvojen od OLTP I osnova je za formiranje baza povezanih DM 
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+4)Razvoj DW sistema isti sistem ko kod razvoja svih ostalih sistema iz dve faze 
+1)strategija, analiza I projketovanje 
+2) programiranje, uvodjenje u upotrebu, koriscenje I odrzavanje . 
+
+Postoje 2 metoda 
+1)iterativni top-down 
+2)inkrementalni bottom up. 
+
+U praksi se koristi kombinacija oba. 
+Strategija nam je potrebna radi dobre analize organizacije I zahteva za DW, postovanje zahteva korisnika, osiguranje da ce korporotivni DW biti dugorocan. 
+Za to treba da uradimo : 
+1) identifikaciju I analizu ciljeva, faktora uspeha, indikatora ostvarenja I ogranicenja u poslovanju 
+2) identifikacija I analiza ciljenja, korisnickih zzahteva I pokreivnosti poslovanja DW sistema 
+3) projektovanje koncepcije arhitekture I dugorocnog razvoja DW sys 
+4) id I analiza izvora podataka 
+5) analiza neusaglasenosti zahteva I izvora podataka 
+6) strateske odluke 
+7)odluka o strategiji za unapredjenje znanja 
+8) izradu plana razvoja 
+9) procena cene 
+
+Razvoj inkrementa prednosti pojedinacnog razvoja DM-a su: 
+
+1)fazni bottm-up razvoj koji upada u strategiju razvoja ukupno EDW 
+2) idovanje ciljenja I potreba korisnika jedne teme 
+3)idovanje funkcionalni zahteva DM 
+4) idovanje izvora podataka za DM 
+5) izbor DM sa lokalnim MDR I MDE software 
+6) izbor arhitekture DM 
+7)pristup podacima putem web tech 
+
+Pilot projekat obezbedjuje: 
+1)razvoj prvoizabranog DM sistema 
+2)testiranje strategije I koncepcija razvoja EDW na pilotu 
+3) korekciju pocetne strategije 
+4) motivacija za ukljucivanje novih korisnika  
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+5)Analiza I spec korisnickih zahteva – 
+na startu moramo shvatiti probleme u poslovanju I pitanja na koje klijent zeli da odgovori, upoznajemo se sa poslovanjem klijenta I upoznajemo se sa postojecim inf sys. 
+Poslovne procese pronalazimo putem anketi I intervuja klijenata. 
+Nakon svakog intervjua se izvodi definicija kriterijuma uspeha pri realizaciji zahteva. 
+Intevjui se dele u celine koje odgovaraju poslovnim procesima kompanije. 
+Specifikacija poslovnog modela podela: 
+1)idovanje I specifiranje(ciljeva, tema, pravila, ogranicenja itd) 
+2)ulazne spec I izvore info(intevju, doc, literatura) 
+3)rez bitni za projektovanje logickog modela 
+4)specifikacija dimenzija I mera  
+
+------------------------------------------------------------------------------------------------------------------------------------------- 
+
+6)Pogledi u DW sistemima 
+SQL je virtuelna tabela ciji se sadrzaj generise upitom, a mozemo je koristiti u drugim upitima za definiciju novih pogleda. 
+Poglede koristimo u DSS da bi se fokusirali na samo potrebne podatke, upiti u DSS cesto koriste agregirane podatke izvedene iz tabela cinjenica. 
+Materiliez view tabela sa agregiranim podacima ciji se zadrzaj generise na osnovu baznih tabela DW baze. 
+U sustini DW baza se moze posmatrati kao materijalizovan pogled nad OLTP sistemima I spoljnim izvorima podataka. 
+Pri kreiranju ovih pogleda vodimo racuna o : koliko vrsta upita moze biti pokriveno pogledom, freq pokretanja pokrivenih upita, ocekivano poboljsanje perf, prostorna zahtevnost itd. 
+SQL materijalizovani pogled je vrsta bazne tabele koja se formira I azurira prouzimanjem podataka iz jedne ili vise dugih tabela. 
+Agregacija podataka: skupljanje podataka po zadatim dimenzijama; podaci su cesto redudantni ali su neophodni za efikasnu podrsku upita I analiza. 
+Cuvamo ih u DW bazi a generisemo u ECTL procesima. Projektovanje DW seme baze podataka sa agregiranim podacima podrazumeva specifikaciju: 
+1)atrbiuta agregiranih podataka 
+2) nivoa agregacije 
+3) algoritma za agregiranje podataka 
+4) nacina izracunavanja I memorisanja agregiranih vrednosti 
+5)implementaciju agregacije u DW semu I ECTL procese 
+6)optimizaciju upita 
+7) pracenje potrebe agregiranih podataka  
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+7)Vrste materijalizacije pogleda obuhvataju 
+1) kroz program  SQL def pogleda u samom programu, upit se izvrsava svaki put 
+2)izvedeni pogled – podaci se generisu upitom I kreiranjem materijalizovanog pogleda koji se koristi u daljim upitima I trenutno osvezava.Upiti su optimizovani I zahteva posebno procesorsko vreme
+3)kroz podatke – putem materijalizovanog Pogleda bez osvezavanja ili sa periodicnim obnavljanjem. DA bi podaci bili konzistenti zahteva posebno procesorsko vreme.
+4)kroz indeks – index u sustini sam predstavlja vrstu materijalizovanog pogleda, koristi se za poboljasnje performansi upita kod selekcije koja obuhvata indexirane atributa, kod joina kao I kod komplente realizacije upita nad indexom 
+5)kombinaciju podataka I indexa – postizu se bolje perforamnse 
+6)agregiranih pogleda – najsire shvatanje agregacije podataka, deli sa ne slucajeve: cele DW baze nad nekom semom, oblik materijalizacije “izveden pogled” I kroz oblik “kroz podatke”. 
+
+Klasifikacija 
+1)join aggregate 
+2)single table aggregate 
+3)join only aggreagte view. 
+
+Izbor pogleda je tezak zadatak jer postoji ogromna kolicina pogleda I upita koji se mogu koristiti u vezi sa upitima.
+Cilj je imati mali ali pogodan skup pogleda koji ce podrzati najveci broj upita koji su bitni. 
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+1) Zvezdasta sema- sastoji se od struktura cinjenicnih podatka I dimenzionih podataka. 
+Njene karakteristike su: 
+1)lako razumljiva struktura 
+2) mogucnost sprovodjenja multidimenzionalnih analiza 
+3) podrska od strane velikog broja alata za izvestavanje I analizu. 
+Uslovi normalizacije: 
+1) zadovoljava uslov 1NF 
+2)ne moraju zadovoljavati boyce codovu nf 
+
+Strukture cinjenicnih podataka- sema relacije tabela cinjenica se takodje naziva tabela detaljnih podatkaa. 
+Ona je u centru seme I referencira tabele dimezija putem stranih kljuceva. Sadrzi atribute mera koji predstavljaju numericke podatke a cesto je rec o agregiranim podacima. 
+
+Relacija moze imati veliki broj torki a kolicina podatka brzo raste. 
+
+Postoje 2 tipe 
+1)regular fact table sa ukljucenim merama 
+2)factless fact table bez ukljucenih mera. 
+
+Postoje 3 vrste mera cinjenica: aditivne, semiaditivne I neaditivne mere. 
+A vrste mera cinjenica: osnovne I izvedene mere cinjenica. 
+
+Strukture dim. Podataka pokazuju kontest cinjenica I povezane su sa semama relacija istih, 
+sadrze atribute koji opisuju samu dimeziju ili reprezentuju agregirane numericke podatke po dimenziji. 
+
+Relacija dimenzije moze biti razlicitog obima. 
+Na izbor kljuca uticu 
+1) granularnost 
+2)nejednaka jedinicna dimenzija u razlicitim izvorima podataka 
+3) razliciti sistemi oznacavanja 
+4)mogucnost modifikacije podataka dimenzije 
+Hijerarhija dimenzije: ima vise nivoa- odnos izmedju tipova entita organizovan po nivoima hijrarhije. 
+Nacini modelovanja obuhvataju: 
+1) normalizovane strukture (1 nivo 1 sema relacije) 
+2) delimicno normalizovane strukture (vise nivoa jedna sema relacije)
+3) potpuno denormalizovane strukture (svi nivoi jedna sema relacije) 
+
+Pahuljica je vrsta star sheme gde se javljaju hijerarhije dimezija putem normalizovane strukture. 
+Prednosti: izbegavanje logickih problema kod denormalizovanih tabela, struktura iskazuje hijararhije I moguce nivoe agregacije 
+Mane: problem performansi upita 
+
+Sazvezdje kombinacije vise zvezdastih sema 
+
+Sema sa agregiranim podacima sumirani podaci po zadatim dimenzijama, iako se ponavljaju bitni su za efikasnu podrzku nekih upita I analiza. 
+Agregacija je moguce u kombinaciji bilo kojih dimenzija. 
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+2) ECTL proces: 
+1)extraction (selektovanje podataka) 
+2) cleaning and transformation (validacija, prociscavanje, integracije) 
+3) loading(punjenje) 
+Postoje razlicita resenja za podrsku ECTL procesa a najpopularniji su: 
+upotreba gotovih softverskih paketa ili sopstvenih softverskih resenja. 
+Osnove za ETL su 3GL programski jezici, utili alati, napredne mogucnosti SQL I gateway interfejsa. 
+Ekstrakcija podataka je selekcija I preuzimanje izvornih podataka iz razlicith izvora u koje spadaju produkcioni podaci, arhivski podaci, interni izvori podataka I eksterni izvori podataka.
+Moze biti potpuna ili inkementalna, a I online ili offline. 
+Transformacija podataka je validacija, prociscavanje, integracija I vremensko oznacavanje podataka. 
+Radi se pod Data Staging Area I ima kljucni uticaj na obezbedjenje kvaliteta podataka I DW. 
+DSA moze biti pozicioniran zajedno sa OLTP serverom(onsite), na posebnom serveru(standalone) I zajedno sa DW serverom(remote). 
+Najcesce greske su: 
+1)ogranicanja kljuca 
+2) druga ogranicenja 
+3)pojave atributa sinonima 
+4)ogranicanja domena istih atruta 
+5) iste vrednosti atributa 
+6)ogranicanja kljuca 
+7) izostavljeni podaci. 
+Problemi se mogu resiti: 
+1)tolesiranjem gresaka 
+2) ignorisanjem gresaka 
+3) resavanje gresaka 
+
+Nakon preciscavanja podaci se transformisu sto ukljucuje: 
+1) opremanje podataka vr. Dimenzijom 
+2) spajanje razlicitih torki u jednu 
+3) razdvajanje jedne torke na vise 
+4) integracija podataka Tri vrste alata za preciscavanje I transformaciju podataka 
+1) data migration tools 
+2)data scrubbing tools 
+3)data auditing tools 
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+3)Punjenje podataka: 
+je jednokratna procedura preuzimanja istorijskih podatka I formairanje DW baze. 
+Ima veliku kolicinu podataka I posebne procedure preciscavanja podataka kao I obradu podataka(moze dugo trajati). 
+Punjenje moze biti: 
+1) potpuno- pune se kompletni podaci sto je sporo I zahtevno 
+2) inkrementalno – pune se samo novopridodati podaci. 
+Punjenje takodje moze biti online ili offline. 
+Alati su zasnovani na odlikama ETL procesa I bazirani su na iskoriscavanju tehinka paralelizacija I pipelining (vremensko smicanje) operacija punjenja. 
+Termin load window je bitan jer on oznacava min. Vreme za realizaciju svih zadataka punjenja podataka. 
+Osvezavanje podataka podrazumeva regularno ponovljivu proceduru preuzimanja novih podataka I osvezavanje DW. 
+Zahtevaju se inkrementalne ekstrancije I jednostavne procedure preciscavanja. Osn. 
+Resenja su: 
+1)propagacija azuriranja-osvezavamo replicirane podatke 
+2)inkrementalno punjenje – preuzivamnje inkremenata iz izvora I punjnje DW. 
+Glavne karakteristike osvezavanja su: 
+1) load window (max trajanje osvezavanja) 
+2)frekvencija I obim podataka 
+3)pristup detektovanju promena na izvoru 
+4) nacin I procdeura osvezavanja 
+
+Meta podaci se kreiraju u procesu razvoja DW sistema I sluze kao neka vresta dokumentacije. 
+Odrzavanje se vrsi u ETL procesu a admnistiriranje podrazumeva uspostavu odgovornosti nad podacima I procedurama.  
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+4)OLAP sistemi se bave neposrednom analitickom obradom podataka tj. Multidimenzijonalnoj obradi 
+jer se vrsi “rotiranje” I “detaljicazija” u prikazu do zahtevanog niva a zatim kreiranje 
+I istrazivanje agregiranih analitickih podataka, analiza trendova I izuzetaka I izvrsavanje analitickih modela. 
+
+OLAP transakacije su uglavnom ad hoc upiti takvi da mogu da obuhvatne I nekoliko hiljada torki I da zahtevaju spajanje torki I primenu f-ja agregacije. 
+Osnovne karakteristike 
+1) multidim strukture podataka 
+2) primena tehinka analize 
+3) repozitorijum meta podataka 
+4) UI prilagodjen korisniku 
+5) primena viselosnih I distrubuiranih arhitektura. 
+
+Arhitektura OLAP sistema se sastoji od OLAP baze bodataka I OLAP front end komponente. 
+
+OLAP server moze biti RDBMS, specijalizovani SQL server, ROLAP, MOLAP ili HOLAP server. 
+
+RDBMS ne valjaju jer nisu dovoljno efikasni ali mogu se koristiti kao podrska OLAP sistemu. 
+Specijalizovan SQL server za cilj ima bolju podrsku OLAP upita nad relaciono orijentisanom multidim strukturom podataka I nudi prosirenje vec postojecih funkcionalnist. 
+RELATIONAL OLAP server se koristi kao mejdusloj relacione baze I OLAP klijenta. 
+Unapredjuje SQL OLAP upite za izvrsavanje nad pozadinsom bazom. 
+MULTIDIM OLAP je isto medjusloj ali ova varijanta pruza pordsku mutlidim strkuturama tipa hiperkocke. 
+HYBRID OLAP je kombinacija ROLAP I MOLAP servera gde je pozadina ROLAP I DW, a agregrirani podaci su MOLAP I hiperkocka. 
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+5)Grupisanje I agregacija grupisanje podataka po zadatom kriterijumu jednosti uz agregiranje po grumama primenom 
+kauzula GROUPBY I HAVING ili skupovnih fja Agregacija I detaljizacije temelje se na dimenzijama I njihovim hijerarhijama; 
+obuhvataju
+1) agregaciju – rollup (redukovanje dim hiperkocke I agregacijom podataka – odabacuje se dimenzija najnize nivoa I vrsi se sumiranje po odbacenoj dimenziji) 
+2) detaljizacija – drilldown (inverzna operacija u odnosu na rollup) 
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+6)AGREGACIONE FUNKCIJE – cesto se koriste u OLAP upitima, resursno su zahtevne I zahtevaju sortiranje podatke. 
+Optimizacija se radi uz pomoc agregriranih vrednosti u izrcunavanju vrednosti grublje granularnosti(tesko u praksi). 
+Vrste: 
+1)distrubutivne – mogu se izracunati pstupno rekurzivnom primenom nad podskupovima podataka 
+2) algebarske – mogu se izracunati postupno primenom drugih agregacionih fja 
+3) holisticke – ne racunaju se postupno vec uvek iz pocetka nad celim skupom podataka. 
+Rangiranje RANK je OLAP fja za rangiranje koja racuna rang za svaki red u OLAP prozoru,
+ vraca vrednosti koja je prirodan broj zasnovan na ORDER BY izrazu Unakrsno tabeliranje metod se zasniva na grupisanju podataka tako da se razume korelacija izmedju istih ,
+ a takodje se koristie I za prikaz kako se korelacija menja od jednog grupisanja do drugog. 
+Primenjuje se u statickoj analizi kako bi se pronasli trendovi. 
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+7)Postoje jednostavni bipmap index, bitsliceindex, kodirani bitmap index. 
+jednostavni BITMAP index, indexira se atribut A tabele T sa n torki pri cemu postoji d razlicitih vrednosti za A u T; 
+za svaku vrednost A se ubodi bit vektor duzine n koji sadrzi n binarnih vrednosti sto je primer primene tehnike relativnog adresiranja torki tabele. 
+Posmatramo vrednost A=a  I odgovorajuci vektora. Skup svih d bit vektora indexiranog atributa predstavlja bitmap index 
+Prednosti: efikasna podrska izvodjenja upita sa skupovnima fjama I logickim operatorima 
+Mane: nije pogodan za indexiranja atrbiuta velike selektinvosti kada je broj torki velik. 
+Najcesce se koristi kod atrbuta sa niskim stepenom selektivnosti (d/n je manje od 20%) 
+
+
+Bit slice index bitmap matrica od n vrsta I m kolona za n torki u indexiranoj tabeli gde I-ta vrsta predstavlja jednu indexiranu vrednost u binarnom obliku.
+Svi nizovi od d se prikaze u upakovanom obliku. 
+Prednosti: pgoodan za indexiranje atrbiuta sa vecim broj mugich vrednosti iz domena, efikanost je ista kao I obicnih bitmap indexa 
+Mana: kompleksnost 
+
+
+Kodirani bitmap index matrica od n vrsta I m kolona gde za n torki u indexiranoj tabeli svaka ita vrsta kodira 
+indexiranu vrednost u itoj torci putem niza bitova duzine m, gde je d broj razlicith vrednosti indexiranog atributa. 
+Nakon cega se forima m kodiranih vektora svaki duzine n. Kombinuje se sa tabelom kodiranih vrednosti I primenljiv je nad atributima bilo kog tipa.
+Ako azuriramo kodirani bitmap index dolazi do produzavanja svih vektora bitmap indexa. 
